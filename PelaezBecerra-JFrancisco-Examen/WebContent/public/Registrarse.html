@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/IniciarSesion.css" rel="stylesheet" type="text/css" />
+    <title>IniciarSesion</title>
+</head>
+
+<body>
+    <div class="form">
+
+        <ul class="tab-group">
+            <li class="tab active"><a href="IniciarSesion.html">Iniciar Sesion</a></li>
+            <li class="tab"><a href="Registrarse.html">Registrarse</a></li>
+        </ul>
+
+        <div class="datos">
+            <form id="formulario01" method="GET" action="/PelaezBecerra-JFrancisco-Examen/CrearUsuarioController">
+                <input type="text" id="nombre" name="nombre" value="" placeholder="Ingrese sus nombres ..." />
+				<br><br>
+				<input type="text" id="apellido" name="apellido" value="" placeholder="Ingrese sus apellidos ..." />
+				<br><br>
+				<input type="text" id="cedula" name="cedula" value="" placeholder="Ingrese su cedula ..." />
+				<br><br>
+				<input type="text" id="direccion" name="direccion" value="" placeholder="Ingrese su direccion ..." />
+				<br><br>
+				<input type="email" id="email" name="email" value="" placeholder="Ingrese su email ..." />
+                <br><br>
+                <input type="password" id="contra" name="contra" value="" placeholder="Ingrese su contrase&#241a ..." />
+				<br><br>
+				<input type="password" id="contra2" name="contra2" value="" placeholder="Ingrese su contrase&#241a nuevamente..." />
+				<br><br>
+				<div id="telfs">
+					<!--LUGAR DE LOS TELEFONOS-->
+				</div>
+				<input type="button" value="Agregar Telf (+)" id="agr" onclick="agregaTel()">
+				<br><br>
+                <input type="submit" id="login" name="login" value="Crear Usuario" />
+            </form>
+        </div>
+
+	</div>
+	
+	<script>
+		var c = 0;
+		function agregaTel(){
+
+			if(c<=5){
+				//Input (num(i))
+			 var inp = document.createElement("INPUT");
+			 inp.type = "text";
+			 inp.id = "num"+c;
+			 inp.name = "num"+c;
+			 inp.placeholder = "Ingrese su numero de Telefono "+(c+1)+"...";
+			 document.getElementById("telfs").appendChild(inp);
+			//Operador (ope(i))
+			 var ope = document.createElement("INPUT");
+			 var array = ["Claro","Movistar","CNT","Tuenti"];
+			 var array2 = ["1","2","3","4"];
+			 ope.type = "text";
+			 ope.id = "ope"+c;
+			 ope.setAttribute("list", "items");
+			 ope.name = "ope"+c;
+			 ope.placeholder = "Elija su Operadora...";
+			 document.getElementById("telfs").appendChild(ope);
+			//Create and append the options
+			var oped = document.createElement("DATALIST");
+			oped.id = "items";
+			for (var i = 0; i < array.length; i++) {
+				var option = document.createElement("option");
+				option.value = array2[i];
+				option.text = array[i];
+				oped.appendChild(option);
+			}
+			document.getElementById("telfs").appendChild(oped);
+			//Tipo (tip(i))
+			 var tip = document.createElement("INPUT");
+			 var array3 = ["Celular","Convencional"];
+			 var array4 = ["1","2"];
+			 tip.id = "tip"+c;
+			 tip.id = "tip"+c;
+			 tip.setAttribute("list", "items1");
+			 tip.name = "tip"+c;
+			 tip.placeholder = "Elija su Tipo de Telefono...";
+			 document.getElementById("telfs").appendChild(tip);
+			 //
+			 var tipd = document.createElement("DATALIST");
+			 tipd.id = "items1";
+			for (var i = 0; i < array3.length; i++) {
+				var option2 = document.createElement("option");
+				option2.value = array4[i];
+				option2.text = array3[i];
+				tipd.appendChild(option2);
+			}
+			document.getElementById("telfs").appendChild(tipd);
+
+			var br = document.createElement("BR");
+			document.getElementById("telfs").appendChild(br);
+			document.getElementById("telfs").appendChild(br);
+			c=c+1;
+			}
+
+			if(c==5){
+				var element = document.getElementById("agr");
+    			element.parentNode.removeChild(element);
+			}
+			
+		}
+	</script>
+    <!-- /form -->
+</body>
+
+</html>

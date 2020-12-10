@@ -119,4 +119,56 @@ public class JPAGenericDAO<T, ID, EMAIL> implements GenericDAO<T, ID, EMAIL>{
 
 	}
 
+	@Override
+	public List<T> find_cedula(EMAIL email) {
+		CriteriaBuilder criteriabuldier = em.getCriteriaBuilder();
+		CriteriaQuery<T> criteriaQuery = criteriabuldier.createQuery(this.persistentClass);
+		
+		//Se establece la clausula de from
+		Root<T> root = criteriaQuery.from(this.persistentClass);
+		
+		//Se establece la clusula de select
+		criteriaQuery.select(root);
+		
+		//Se configuran predicados
+		javax.persistence.criteria.Predicate predicate = criteriabuldier.like(root.get("per_cedula").as(String.class), email.toString());
+		
+		//javax.persistence.criteria.Predicate sig = criteriabuldier.like(root.get("per_email").as(String.class), email.toString());
+		
+		//predicate=criteriabuldier.
+		
+		//Se crea el where
+		criteriaQuery.where(predicate);
+		
+		//Se crea el resultado
+		TypedQuery<T> tq = em.createQuery(criteriaQuery);
+		return tq.getResultList();
+	}
+
+	@Override
+	public List<T> find_telefono(EMAIL email) {
+		CriteriaBuilder criteriabuldier = em.getCriteriaBuilder();
+		CriteriaQuery<T> criteriaQuery = criteriabuldier.createQuery(this.persistentClass);
+		
+		//Se establece la clausula de from
+		Root<T> root = criteriaQuery.from(this.persistentClass);
+		
+		//Se establece la clusula de select
+		criteriaQuery.select(root);
+		
+		//Se configuran predicados
+		javax.persistence.criteria.Predicate predicate = criteriabuldier.like(root.get("tel_numero").as(String.class), email.toString());
+		
+		//javax.persistence.criteria.Predicate sig = criteriabuldier.like(root.get("per_email").as(String.class), email.toString());
+		
+		//predicate=criteriabuldier.
+		
+		//Se crea el where
+		criteriaQuery.where(predicate);
+		
+		//Se crea el resultado
+		TypedQuery<T> tq = em.createQuery(criteriaQuery);
+		return tq.getResultList();
+	}
+
 }

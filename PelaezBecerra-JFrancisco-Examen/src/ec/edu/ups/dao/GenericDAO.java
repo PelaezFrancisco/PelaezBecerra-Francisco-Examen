@@ -17,5 +17,10 @@ public interface GenericDAO<T, ID, EMAIL> {
     public List<T> findAll();
     
     public T find_email(EMAIL email);
+    
+    public List<T> find_cedula(EMAIL email);
+    
+    public List<T> find_telefono(EMAIL email);
+    
 }
 

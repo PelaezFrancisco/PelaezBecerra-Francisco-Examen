@@ -74,9 +74,11 @@ public class Telefonos implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((operador == null) ? 0 : operador.hashCode());
 		result = prime * result + tel_id;
 		result = prime * result + ((tel_numero == null) ? 0 : tel_numero.hashCode());
+		result = prime * result + ((operador == null) ? 0 : operador.hashCode());
+		
+		
 		return result;
 	}
 

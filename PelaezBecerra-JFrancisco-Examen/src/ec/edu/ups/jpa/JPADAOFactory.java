@@ -17,19 +17,19 @@ public class JPADAOFactory extends DAOFactory{
 	@Override
 	public PersonaDAO getPersonaDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new JPADAOPersona();
 	}
 
 	@Override
 	public TelefonosDAO getTelefonosDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new JPADAOTelefonos();
 	}
 
 	@Override
 	public TipoDAO getTipoDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new JPADAOTipo();
 	}
 
 }

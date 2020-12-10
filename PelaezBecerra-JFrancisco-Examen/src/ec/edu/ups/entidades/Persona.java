@@ -50,13 +50,14 @@ public class Persona implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((per_apellido == null) ? 0 : per_apellido.hashCode());
+		result = prime * result + per_id;
 		result = prime * result + ((per_cedula == null) ? 0 : per_cedula.hashCode());
-		result = prime * result + ((per_contrasena == null) ? 0 : per_contrasena.hashCode());
+		result = prime * result + ((per_nombre == null) ? 0 : per_nombre.hashCode());
+		result = prime * result + ((per_apellido == null) ? 0 : per_apellido.hashCode());
 		result = prime * result + ((per_direccion == null) ? 0 : per_direccion.hashCode());
 		result = prime * result + ((per_email == null) ? 0 : per_email.hashCode());
-		result = prime * result + per_id;
-		result = prime * result + ((per_nombre == null) ? 0 : per_nombre.hashCode());
+		result = prime * result + ((per_contrasena == null) ? 0 : per_contrasena.hashCode());
+		
 		return result;
 	}
 
